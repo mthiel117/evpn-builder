@@ -1,0 +1,31 @@
+vlans:
+ - {'vlanId': 10, 'vlanVni': '10010', 'name': 'Stretched-Vlan10-10.225.10.0/24', 'subnet': '10.225.10.0', 'mask': '/24', 'vrfDef': 'RED' }
+ - {'vlanId': 20, 'vlanVni': '10020', 'name': 'Stretched-Vlan20-10.225.20.0/24', 'subnet': '10.225.20.0', 'mask': '/24', 'vrfDef': 'BLUE' }
+ - {'vlanId': 30, 'vlanVni': '10030', 'name': 'NFS-Vlan30-10.225.30.0/24', 'subnet': '10.225.30.0', 'mask': '/24', 'vrfDef': 'GREEN' }
+ - {'vlanId': 40, 'vlanVni': '10040', 'name': 'NFS-Vlan40-10.225.40.0/24', 'subnet': '10.225.40.0', 'mask': '/24', 'vrfDef': 'GREEN' }
+ - {'vlanId': 50, 'vlanVni': '10050', 'name': 'test-Vlan50-10.225.50.0/24', 'subnet': '10.225.50.0', 'mask': '/24', 'vrfDef': 'BLUE' }
+ - {'vlanId': 101, 'vlanVni': '10101', 'name': 'Prod-Vlan-10.100.101.0/24', 'subnet': '10.100.101.0', 'mask': '/24', 'vrfDef': 'RED' }
+ - {'vlanId': 102, 'vlanVni': '10102', 'name': 'Prod-Vlan-10.100.102.0/24', 'subnet': '10.100.102.0', 'mask': '/24', 'vrfDef': 'BLUE' }
+ - {'vlanId': 201, 'vlanVni': '10201', 'name': 'DR-Vlan-10.200.101.0/24', 'subnet': '10.200.101.0', 'mask': '/24', 'vrfDef': 'BLUE' }
+
+vrfs:
+ - {vrfName: 'RED', vrfVni: '50001', routeTarget: '1:1' }
+ - {vrfName: 'BLUE', vrfVni: '50002', routeTarget: '2:2' }
+ - {vrfName: 'GREEN', vrfVni: '50003', routeTarget: '3:3' }
+
+devices:
+ - {deviceName: 'dc1-spine-101', appliedVlans: [] }
+ - {deviceName: 'dc1-spine-102', appliedVlans: [] }
+ - {deviceName: 'dc1-dci-101', appliedVlans: [10,20,30] }
+ - {deviceName: 'dc1-dci-102', appliedVlans: [10,20,30] }
+ - {deviceName: 'dc1-leaf-1101', appliedVlans: [10,20,30,50,101,102] }
+ - {deviceName: 'dc1-leaf-1102', appliedVlans: [10,20,30,50,101,102] }
+ - {deviceName: 'dc1-leaf-1103', appliedVlans: [10,20,30,40,101,102] }
+ - {deviceName: 'dc1-leaf-1104', appliedVlans: [10,20,30,40,101,102] }
+ - {deviceName: 'dc2-spine-201', appliedVlans: [] }
+ - {deviceName: 'dc2-spine-202', appliedVlans: [] }
+ - {deviceName: 'dc2-dci-201', appliedVlans: [10,20,30] }
+ - {deviceName: 'dc2-dci-202', appliedVlans: [10,20,30] }
+ - {deviceName: 'dc2-leaf-1201', appliedVlans: [10,20,30,101,102] }
+ - {deviceName: 'dc2-leaf-1202', appliedVlans: [10,20,30,101,102] }
+
